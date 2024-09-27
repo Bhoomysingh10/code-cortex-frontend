@@ -6,7 +6,7 @@ function DashBoard() {
       <img 
         src="image.png" 
         alt="Dashboard" 
-        className="absolute w-auto max-w-full h-auto max-h-full px-4 m-4"
+        className="absolute w-auto max-w-full h-auto max-h-full p-4 m-4"
         style={{
           top: '25%',
           left: '50%',
