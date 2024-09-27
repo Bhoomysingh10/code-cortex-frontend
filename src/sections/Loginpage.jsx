@@ -1,12 +1,16 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('')
+  const navigate = Navigate()
   const [password, setPassword] = useState('')
   useEffect(() => { 
-    axios.post("http://localhost:5000/api/auth/login", { 
+    const response = axios.post("http://localhost:5000/api/auth/login", { 
       email: email,
       password: password
     }, 
@@ -16,7 +20,13 @@ const Login = () => {
       }
     }
   )
-  })
+  if(response.status === 200){
+    navigate('/homepage')
+  }
+  else { 
+    navigate('/login')  
+  }
+  }, [])
   return (
     <>
     <Navbar bgColor = 'bg-white' textColor= 'text-black'/>
@@ -29,7 +39,7 @@ const Login = () => {
             <input
               type="email"
               className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
-              onChange={setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -37,7 +47,7 @@ const Login = () => {
             <input
               type="password"
               className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
-              onChange={setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
