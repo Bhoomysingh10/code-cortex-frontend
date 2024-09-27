@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Login = () => {
   const [email, setEmail] = useState('')

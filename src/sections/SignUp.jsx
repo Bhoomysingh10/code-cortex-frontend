@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import axios from 'axios'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const SignUp = () => {
   const [email, setEmail] = useState('')
