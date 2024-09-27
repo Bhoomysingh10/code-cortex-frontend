@@ -1,8 +1,22 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
+import { useEffect } from 'react';
 
 const Login = () => {
-
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  useEffect(() => { 
+    axios.post("http://localhost:5000/api/auth/login", { 
+      email: email,
+      password: password
+    }, 
+    {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+  })
   return (
     <>
     <Navbar bgColor = 'bg-white' textColor= 'text-black'/>
@@ -15,6 +29,7 @@ const Login = () => {
             <input
               type="email"
               className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
+              onChange={setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -22,6 +37,7 @@ const Login = () => {
             <input
               type="password"
               className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
+              onChange={setPassword(e.target.value)}
             />
           </div>
           <button

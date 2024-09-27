@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
+import axios from 'axios'
+import { useEffect } from 'react';
 
 const SignUp = () => {
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')  
+  useEffect(() => { 
+    axios.post("http://localhost:5000/api/auth/signup", { 
+      email: email,
+      name: name,
+      password: password
+    }, 
+    {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+  }, [])
   return (
     <>
       <Navbar bgColor="bg-white" textColor="text-black" />
@@ -14,6 +32,7 @@ const SignUp = () => {
               <input
                 type="email"
                 className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
+                onChange={setEmail(e.target.value)}
               />
             </div>
 
@@ -22,6 +41,7 @@ const SignUp = () => {
               <input
                 type="Name"
                 className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
+                onChange={setName(e.target.value)}
               />
             </div>
 
@@ -31,6 +51,7 @@ const SignUp = () => {
               <input
                 type="Password"
                 className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
+                onChange={setPassword(e.target.value)}
               />
             </div>
 
