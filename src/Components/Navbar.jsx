@@ -10,25 +10,25 @@ const Navbar = () => {
         </div>
 
         {/* Nav Links */}
-        <ul className="flex space-x-8">
+        <ul className="flex space-x-10">
           <li>
-            <a href="#" className="hover:text-gray-400">About</a>
+            <a href="#" className="hover:text-gray-400">Home</a>
           </li>
           <li>
             <a href="#" className="hover:text-gray-400">Features</a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-400">Careers</a>
+            <a href="#" className="hover:text-gray-400">AboutUs</a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-400">Pricing</a>
+            <a href="#" className="hover:text-gray-400">ContactUs</a>
           </li>
-          <li>
+          {/*<li>
             <a href="#" className="hover:text-gray-400">Resources</a>
           </li>
           <li>
             <a href="#" className="hover:text-gray-400">Cart (0)</a>
-          </li>
+          </li>*/}
         </ul>
 
         {/* Buttons */}
@@ -36,9 +36,9 @@ const Navbar = () => {
           <button className="px-4 py-2 bg-[#44403C] text-white rounded-md hover:bg-gray-700">
             Log In
           </button>
-          <button className="px-4 py-2 bg-white text-black rounded-md hover:bg-gray-100 flex items-center">
+          {/*<button className="px-4 py-2 bg-white text-black rounded-md hover:bg-gray-100 flex items-center">
             Get Started <span className="ml-2">↗</span>
-          </button>
+          </button>*/}
         </div>
       </div>
     </nav>
