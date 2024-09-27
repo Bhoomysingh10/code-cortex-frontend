@@ -8,16 +8,15 @@ const Navbar = ({bgColor, textColor}) => {
           ZenoVate
         </div>
 
-        {/* Nav Links */}
         <ul className="flex space-x-8">
           <li>
-            <a href="#" className="hover:text-gray-400">Home</a>
+            <a href="http://localhost:5173/homepage" className="hover:text-gray-400">Home</a>
           </li>
           <li>
             <a href="#" className="hover:text-gray-400">Features</a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-400">About Us</a>
+            <a href="http://localhost:5173/aboutus" className="hover:text-gray-400">About Us</a>
           </li>
           <li>
             <a href="#" className="hover:text-gray-400">Contact Us</a>
