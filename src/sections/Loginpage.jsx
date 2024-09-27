@@ -51,7 +51,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button
+          <button 
             type="submit"
             className="w-full bg-[#322E4A] text-white py-2 rounded-lg font-medium hover:bg-[#5e558e76] focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
