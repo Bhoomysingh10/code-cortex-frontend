@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
         <Navbar/>
-        <div className='h-[100vh] w-[100vw] bg-gradient-to-b from-[#1A161E] to-[#282231]'>
+        <div className='h-screen w-screen bg-gradient-to-b from-[#1A161E] to-[#282231]'>
             <div className=''>
                 <div className='bg-black w-[40rem] h-[15rem] rounded-xl absolute top-[20%] left-[5rem] flex items-center p-5 font-extrabold text-white text-[42px] leading-tight'>
                 Revolutionizing Wellness: Detect Mental Fatigue with AI
