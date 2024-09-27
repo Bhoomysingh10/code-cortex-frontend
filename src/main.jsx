@@ -7,6 +7,7 @@ import './index.css'
 import HomePage from './sections/homePage.jsx';
 import React from 'react';
 import Login from './sections/Loginpage.jsx';
+import SignUp from './sections/SignUp.jsx';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/login" element ={<Login/>} />
+        <Route path="/signup" element={<SignUp/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

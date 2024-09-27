@@ -25,9 +25,11 @@ const Navbar = ({bgColor, textColor}) => {
         </ul>
 
         <div className="flex space-x-4">
+          <a href="/signup">
           <button className="px-4 py-2 bg-[#44403C] text-white rounded-md hover:bg-gray-700 transition duration-300">
             Log In
           </button>
+          </a>
         </div>
       </div>
     </nav>

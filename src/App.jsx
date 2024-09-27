@@ -9,6 +9,7 @@ function App() {
       <Navbar bgColor={'bg-[#1A161E]'} textColor={'text-white'}/>
       <FirstPage/>
       <DashBoard/>
+    
     </div>
   )
 }
