@@ -4,7 +4,6 @@ const Navbar = () => {
   return (
     <nav className="bg-[#1A161E] text-white p-4">
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
         <div className="text-2xl font-semibold">
           ZenoVate
         </div>
@@ -31,7 +30,6 @@ const Navbar = () => {
           </li>*/}
         </ul>
 
-        {/* Buttons */}
         <div className="flex space-x-4">
           <button className="px-4 py-2 bg-[#44403C] text-white rounded-md hover:bg-gray-700">
             Log In
