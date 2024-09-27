@@ -1,8 +1,8 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({bgColor, textColor}) => {
   return (
-    <nav className="bg-[#1A161E] text-white p-4">
+    <nav className={`${bgColor} ${textColor} p-4`}>
       <div className="container mx-auto flex items-center justify-between">
         <div className="text-2xl font-semibold">
           ZenoVate
