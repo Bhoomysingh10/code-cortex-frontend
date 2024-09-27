@@ -3,12 +3,14 @@ import Navbar from '../Components/Navbar';
 import axios from 'axios'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUp = () => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')  
+  const navigate = useNavigate()
   useEffect(() => { 
     const response = axios.post("http://localhost:5000/api/auth/signup", { 
       email: email,
