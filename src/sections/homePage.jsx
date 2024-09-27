@@ -28,8 +28,8 @@ const HomePage = () => {
                 <img src="/emo-2.png" alt="" />
             </div>
 
-            <div className='h-[25rem] w-[18rem] rounded-xl absolute right-[3rem] top-[25rem]'>
-                <img src="/emo-3.png" alt="" />
+            <div className=' h-[25rem] w-[18rem] rounded-xl absolute right-1 bottom-[3rem]'>
+                <img src="/emo-3.png" alt="" className='w-[14rem]'/>
             </div>
         </div>
     </>
