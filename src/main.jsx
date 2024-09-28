@@ -9,7 +9,29 @@ import React from 'react';
 import Login from './sections/Loginpage.jsx';
 import SignUp from './sections/SignUp.jsx';
 import AboutUs from './sections/AboutUs.jsx';
+import Chart from './sections/Chart'
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+} from 'chart.js';
 
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  BarElement
+);
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -19,6 +41,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/login" element ={<Login/>} />
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path="/dashboard" element={<Chart/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

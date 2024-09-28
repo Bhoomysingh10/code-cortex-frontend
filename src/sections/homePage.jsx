@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 
 const HomePage = () => {
-  // State to handle the time, date, and month
+  
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
   const [currentMonth, setCurrentMonth] = useState('');
 
-  // Function to update time every second
+
   useEffect(() => {
     const updateTime = () => {
       const date = new Date();
@@ -16,17 +16,17 @@ const HomePage = () => {
       const seconds = String(date.getSeconds()).padStart(2, '0');
       setCurrentTime(`${hours}:${minutes}:${seconds}`);
 
-      const day = date.getDate(); // Get the current date
-      const month = date.toLocaleString('default', { month: 'long' }); // Get the current month name
+      const day = date.getDate(); 
+      const month = date.toLocaleString('default', { month: 'long' }); 
       setCurrentDate(day);
       setCurrentMonth(month);
     };
 
-    // Call updateTime immediately and then set it to update every second
+   
     updateTime();
     const interval = setInterval(updateTime, 1000);
 
-    // Clean up the interval on component unmount
+
     return () => clearInterval(interval);
   }, []);
 
@@ -35,22 +35,22 @@ const HomePage = () => {
       <Navbar bgColor={'bg-[#1A161E]'} textColor={'text-white'} />
       <div className='h-screen w-screen bg-gradient-to-b from-[#1A161E] to-[#282231]'>
 
-        {/* Existing content */}
+        
         <div className=''>
           <div className='bg-[#1A161E] w-[45rem] h-[15rem] rounded-xl absolute top-[28%] left-[5rem] flex items-center p-5 font-extrabold text-white text-[42px] leading-tight'>
             Revolutionizing Wellness: Detect Mental Fatigue with AI
           </div>  
         </div>
 
-        {/* Date Section below the "Revolutionizing Wellness" block */}
+    
         <div className='bg-[#282231] h-[8rem] w-[38rem] absolute top-[64%] left-[5rem] p-5 text-white text-[42px] flex flex-col  rounded-xl right-5'>
           <p className='text-[28px] font-bold'>{`Date: ${currentDate} ${currentMonth}`}</p>
-          <p className='mt-2 text-[22px]'>{`Time: ${currentTime}`}</p> {/* Displaying date with label */}
+          <p className='mt-2 text-[22px]'>{`Time: ${currentTime}`}</p> 
         </div>
 
-        {/* Month and Time Section */}
+        
 
-        {/* Image sections */}
+       
         <div className='h-[15rem] w-[15rem] rounded-xl absolute right-[20rem] top-[5rem] '>
           <img src="/emo-1.png" alt="" />
         </div>
