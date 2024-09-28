@@ -11,29 +11,33 @@ const SignUp = () => {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')  
   const navigate = useNavigate()
-  useEffect(() => { 
-    const response = axios.post("http://localhost:5000/api/auth/signup", { 
-      email: email,
-      name: name,
-      password: password
-    }, 
-    {
-      headers: {
-        "Content-Type": "application/json"
+
+  const handleSubmit = async (e) => { 
+    e.preventDefault()
+      const response = await axios.post("http://localhost:5052/api/auth/signup", { 
+        email: email,
+        username: name,
+        password: password
+      }, 
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
+    )
+    if(response.status === 201){
+      navigate('/login')
     }
-  )
-  if(response.status === 200){
-    navigate('/login')
   }
-  }, [])
+
+
   return (
     <>
       <Navbar bgColor="bg-white" textColor="text-black" />
       <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="w-full max-w-md">
           <h2 className="text-3xl font-semibold text-center mb-6">Sign Up</h2>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700">Email</label>
               <input

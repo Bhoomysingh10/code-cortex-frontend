@@ -9,10 +9,12 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
-  
-  useEffect(() => { 
-    const response = axios.post("http://localhost:5000/api/auth/login", { 
-      email: email,
+
+  const handleSubmit = async (e) => { 
+    e.preventDefault()
+    localStorage.setItem('user', email)
+    const response = await axios.post("http://localhost:5052/api/auth/login", { 
+      username: email,
       password: password
     }, 
     {
@@ -27,18 +29,19 @@ const Login = () => {
   else { 
     navigate('/login')  
   }
-  }, [])
+  }
+  
   return (
     <>
     <Navbar bgColor = 'bg-white' textColor= 'text-black'/>
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="w-full max-w-md">
         <h2 className="text-3xl font-semibold text-center mb-6">Log In</h2>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <label className="block text-sm font-medium text-gray-700">Username</label>
             <input
-              type="email"
+              type="text"
               className="w-full px-4 py-2 bg-transparent border-b border-gray-300 rounded-none focus:outline-none focus:ring-0 focus:border-indigo-500"
               onChange={(e) => setEmail(e.target.value)}
             />

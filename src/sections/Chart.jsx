@@ -1,9 +1,37 @@
 // src/components/Dashboard.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import Navbar from '../Components/Navbar';
+import axios from 'axios';
 
 const Chart = () => {
+  const [happy, setHappy] = useState('');
+  const [sad, setSad] = useState('');
+  const [neutral, setNeutral] = useState('')
+  const user = localStorage.getItem('user');
+
+  useEffect(() => { 
+    const handleData = async () => { 
+      console.log(user);
+      const response = await axios.post('http://localhost:5052/api/emotions',  { 
+        username: user,
+      }, 
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      const data = response.data;
+      const responseEmotions = data.emotions; 
+      console.log(responseEmotions);
+      setHappy(responseEmotions.happy);
+      setSad(responseEmotions.sad);
+      setNeutral(responseEmotions.neutral);
+    }
+    handleData();
+  }, [user])
+
  
   const lineData = {
     labels: ['25.07', '26.07', '27.07', '28.07', '29.07', '30.07', '31.07', '32.07', '33.07'],
@@ -19,11 +47,11 @@ const Chart = () => {
   };
 
   const doughnutData = {
-    labels: ['Apps', 'Web', 'Mobile'],
+    labels: ['Happy', 'Sad', 'Neutral'],
     datasets: [
       {
-        label: 'Website Traffic',
-        data: [38, 21, 21],
+        label: 'Emotions',
+        data: [happy, sad, neutral],
         backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
         hoverBackgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
       },
@@ -31,11 +59,11 @@ const Chart = () => {
   };
 
   const barData = {
-    labels: ['Domains', 'Subdomains', 'IP Addresses'],
+    labels: ['Happy', 'Sad', 'Neutral'],
     datasets: [
       {
         label: 'Count',
-        data: [0, 60, 20],
+        data: [happy, sad, neutral],
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
       },
     ],
@@ -74,14 +102,14 @@ const Chart = () => {
 
       {/* Right Center Card (Website Traffic) */}
       <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="text-lg font-bold">Website Traffic</h3>
+        <h3 className="text-lg font-bold">Emotions - Doughnut Stats</h3>
         <Doughnut data={doughnutData} />
       </div>
 
       {/* Bottom Left (Domain Info) */}
       <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="text-lg font-bold">Domains</h3>
-        <Bar data={barData} />
+        <h3 className="text-lg font-bold">Emotions - Bar Graph stats</h3>
+        <Bar data={barData}/>
       </div>
 
      
